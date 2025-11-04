@@ -1,19 +1,9 @@
-/* Minimal styles so the component looks okay without Tailwind installed */
-:root {
-  --bg: #fef3c7;
-  --card: #ffffff;
-  --muted: #6b7280;
-  --blue: #2563eb;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background: linear-gradient(180deg, #fde68a 0%, #fcd34d 100%);
-}
-
-button { cursor: pointer; }
-
-.container { max-width: 56rem; margin: 0 auto; padding: 2rem; }
-.card { background: var(--card); border-radius: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.06); padding: 2rem; }
+/* Minimal overrides */
+html, body, #root { height: 100%; }
+body { @apply bg-gradient-to-b from-yellow-400 to-yellow-300 font-sans; }
+.container { @apply max-w-4xl mx-auto px-4 py-12; }
+.card { @apply bg-white rounded-lg shadow-xl p-8; }
