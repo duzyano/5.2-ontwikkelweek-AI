@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&L Tripwise - Jouw slimme reispartner</title>
-    <style>
-        * {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D&L Tripwise - Jouw slimme reispartner</title>
+  <link rel="stylesheet" href="style.css"> <!-- eventueel externe CSS -->
+  <style>
+            * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -1024,207 +1025,30 @@
                 height: 40px;
             }
         }
-    </style>
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="window.location.href='index.php'">D&L Tripwise</div>
-            <ul class="nav-menu">
-                <li><button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">☀️ Light Mode</button></li>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="features.php">Functies</a></li>
-                <li><a href="planner.php">Plan reis</a></li>
-                <li><a href="about.php">Over ons</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-        </div>
-    </nav>
+  <!-- Navigatiebalk -->
+  <nav class="navbar" id="navbar">
+      <div class="nav-container">
+          <div class="nav-logo" onclick="window.location.href='index.php'">D&L Tripwise</div>
+          <ul class="nav-menu">
+              <li><button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">☀️ Light Mode</button></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="features.php">Functies</a></li>
+              <li><a href="planner.php">Plan reis</a></li>
+              <li><a href="about.php">Over ons</a></li>
+              <li><a href="contact.php">Contact</a></li>
+          </ul>
+          <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+      </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title">D&L Tripwise</h1>
-            <p class="hero-subtitle">Jouw slimme reispartner door heel Nederland</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="window.location.href='planner.php'">Plan je reis nu</button>
-                <button class="btn btn-secondary" onclick="window.location.href='features.php'">Ontdek meer</button>
-            </div>
-        </div>
-        <div class="scroll-indicator" onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
-            ↓
-        </div>
-    </section>
+  <main>
+    
+  <script>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2 class="section-title">Waarom D&L Tripwise?</h2>
-        <p class="section-subtitle">Alles wat je nodig hebt voor een zorgeloze reis</p>
-        
-        <div class="features-grid">
-            <div class="feature-card" onclick="window.location.href='features.php#transport'">
-                <div class="feature-icon">🚆</div>
-                <h3 class="feature-title">Alle vervoersmiddelen</h3>
-                <p class="feature-description">Trein, bus, tram, metro en meer. Vind altijd de beste route.</p>
-            </div>
-            <div class="feature-card" onclick="window.location.href='features.php#realtime'">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Real-time updates</h3>
-                <p class="feature-description">Live vertragingen en wijzigingen, zodat je altijd op de hoogte bent.</p>
-            </div>
-            <div class="feature-card" onclick="window.location.href='features.php#smart'">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">Slimme routeplanner</h3>
-                <p class="feature-description">Onze AI vindt de snelste en goedkoopste route voor jou.</p>
-            </div>
-            <div class="feature-card" onclick="window.location.href='tickets.php'">
-                <div class="feature-icon">💳</div>
-                <h3 class="feature-title">Digitaal reizen</h3>
-                <p class="feature-description">Koop en beheer je tickets direct in de app.</p>
-            </div>
-            <div class="feature-card" onclick="window.location.href='notifications.php'">
-                <div class="feature-icon">🔔</div>
-                <h3 class="feature-title">Slimme notificaties</h3>
-                <p class="feature-description">Krijg meldingen over je reis en mis nooit meer je trein.</p>
-            </div>
-            <div class="feature-card" onclick="window.location.href='coverage.php'">
-                <div class="feature-icon">🌍</div>
-                <h3 class="feature-title">Heel Nederland</h3>
-                <p class="feature-description">Van Amsterdam tot Maastricht, overal actuele reisinformatie.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Planner Section -->
-    <section class="planner" id="planner">
-        <h2 class="section-title" style="margin-bottom: 50px;">Plan je reis</h2>
-        
-        <div class="planner-container">
-            <div class="planner-card">
-                <form id="searchForm" action="search-results.php" method="POST">
-                    <div class="input-group" style="position: relative;">
-                        <label for="from">Vertrek</label>
-                        <div class="input-wrapper">
-                            <span class="input-icon">📍</span>
-                            <input type="text" id="from" name="from" placeholder="bijv. Amsterdam Centraal" required>
-                        </div>
-                        <button type="button" class="swap-btn" onclick="swapLocations()">⇅</button>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="to">Bestemming</label>
-                        <div class="input-wrapper">
-                            <span class="input-icon">🎯</span>
-                            <input type="text" id="to" name="to" placeholder="bijv. Rotterdam Centraal" required>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="datetime">Datum & Tijd</label>
-                        <div class="input-wrapper">
-                            <span class="input-icon">🕐</span>
-                            <input type="datetime-local" id="datetime" name="datetime" required>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="travelType">Reistype</label>
-                        <div class="input-wrapper">
-                            <span class="input-icon">🚆</span>
-                            <select id="travelType" name="travelType">
-                                <option value="departure">Vertrek om dit tijdstip</option>
-                                <option value="arrival">Aankomst om dit tijdstip</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="search-btn">🔍 Zoek reisadvies</button>
-
-                    <div class="quick-links">
-                        <span class="quick-link" onclick="fillQuick('Amsterdam Centraal', 'Rotterdam Centraal')">AMS → RTM</span>
-                        <span class="quick-link" onclick="fillQuick('Utrecht Centraal', 'Den Haag Centraal')">UTR → DHG</span>
-                        <span class="quick-link" onclick="fillQuick('Eindhoven Centraal', 'Maastricht')">EHV → MST</span>
-                        <span class="quick-link" onclick="fillQuick('Groningen', 'Amsterdam Centraal')">GRN → AMS</span>
-                    </div>
-                </form>
-
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                    <div class="loading-text">Reisadviezen zoeken...</div>
-                </div>
-
-                <div class="results" id="results"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="stats" id="stats">
-        <h2 class="section-title">D&L Tripwise in cijfers</h2>
-        <p class="section-subtitle">Vertrouwd door duizenden reizigers</p>
-        
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">500K+</div>
-                <div class="stat-label">Actieve gebruikers</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">2M+</div>
-                <div class="stat-label">Geplande reizen</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Klanttevredenheid</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Beschikbaar</div>
-            </div>
-        </div>
-    </section>
-     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>D&L Tripwise</h3>
-                <p>Jouw betrouwbare partner voor openbaar vervoer in Nederland.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="planner.php">Reisplanner</a></li>
-                    <li><a href="live-updates.php">Live updates</a></li>
-                    <li><a href="tickets.php">Tickets kopen</a></li>
-                    <li><a href="my-trips.php">Mijn reizen</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Informatie</h3>
-                <ul>
-                    <li><a href="about.php">Over ons</a></li>
-                    <li><a href="faq.php">Veelgestelde vragen</a></li>
-                    <li><a href="privacy.php">Privacy</a></li>
-                    <li><a href="terms.php">Algemene voorwaarden</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <ul>
-                    <li><a href="support.php">Klantenservice</a></li>
-                    <li><a href="mailto:info@dltripwise.nl">E-mail</a></li>
-                    <li><a href="partnerships.php">Partnerships</a></li>
-                    <li><a href="press.php">Pers</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 D&L Tripwise. Alle rechten voorbehouden.</p>
-        </div>
-    </footer>
-
-    <script>
 function toggleTheme() {
     const body = document.body;
     const themeButton = document.getElementById('themeToggle');
@@ -1256,5 +1080,4 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
-</body>
-</html>
+
