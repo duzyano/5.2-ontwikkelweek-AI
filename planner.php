@@ -767,6 +767,28 @@ body:not(.light-mode) .route-chip:hover {
         grid-template-columns: 1fr;
     }
 }
+.info-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background: linear-gradient(135deg, var(--planner-accent-primary) 0%, var(--planner-accent-secondary) 100%);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+body:not(.light-mode) .info-btn {
+    background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+    color: #000;
+}
+
+.info-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--planner-shadow-sm);
+}
+
 </style>
 
 <script>
@@ -1133,6 +1155,15 @@ function generateMockResults(from, to, datetime) {
         const depTime = departureTime.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
         const arrTime = arrivalTime.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' });
         
+        const query = new URLSearchParams({
+            from: from,
+            to: to,
+            departure: depTime,
+            arrival: arrTime,
+            duration: duration,
+            type: transport.type,
+        }).toString();
+
         html += `
             <div class="result-item">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
@@ -1153,12 +1184,14 @@ function generateMockResults(from, to, datetime) {
                 <p style="color: #4CAF50; font-size: 0.9em; margin-top: 8px;">
                     ✓ Op tijd
                 </p>
+                <a href="plannerinfo.php?${query}" class="info-btn">ℹ️ Meer informatie</a>
             </div>
         `;
     }
     
     return html;
 }
+
 
 // --- Smooth scroll voor alle interne links ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
